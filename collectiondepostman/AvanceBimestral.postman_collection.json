@@ -1,0 +1,718 @@
+{
+	"info": {
+		"_postman_id": "2003da15-f5b2-47db-af1d-c1a67c0097b2",
+		"name": "AvanceBimestral",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956966"
+	},
+	"item": [
+		{
+			"name": "AgregarUsuario",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "marcos",
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": "pamal",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "mpamal",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mpamal@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "428273Ma?",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "42827334",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2636/register",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"token\", data.token)"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userLoggin",
+							"value": "defaultuser",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "De123456?",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2636/login",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2636/test",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarTodosUsuarios",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2636/v1/user/getAllU",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"user",
+						"getAllU"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarIdUsuario",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2636/v1/user/getU/67b29133079806ec788b7910",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"user",
+						"getU",
+						"67b29133079806ec788b7910"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarUsuario",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "marcosjoel",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2636/v1/user/updateU/67b29cf91b2f8bda469f2822",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"user",
+						"updateU",
+						"67b29cf91b2f8bda469f2822"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarUsuario",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2636/v1/user/deleteU/67b289e64d6737c655014804",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"user",
+						"deleteU",
+						"67b289e64d6737c655014804"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AgregarCategoria",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Mascotas",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Consentrado para animales",
+							"type": "text"
+						},
+						{
+							"key": "clasification",
+							"value": "CATEGORY",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2636/v1/category/addC",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"category",
+						"addC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarCategorias",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2636/v1/category/getAllC",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"category",
+						"getAllC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarCategoria",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Gaseosas",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2636/v1/category/updateC/67afce205dc95af59e538780",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"category",
+						"updateC",
+						"67afce205dc95af59e538780"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarCategoria",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:2636/v1/category/deleteC/67afce205dc95af59e538780",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"category",
+						"deleteC",
+						"67afce205dc95af59e538780"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AgregarProducto",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Croquetas",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "concentrado para perro",
+							"type": "text"
+						},
+						{
+							"key": "brand",
+							"value": "Dog Chow",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "260.00",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "15",
+							"type": "text"
+						},
+						{
+							"key": "soldOut",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sold",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "67b2a823b814e99639b60d2c",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2636/v1/product/addP",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"product",
+						"addP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarTodosCategoria",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2636/v1/category/getAllC",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"category",
+						"getAllC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarCategoria",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Mascotas todas",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2636/v1/category/updateC/67b29ce11b2f8bda469f281e",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"category",
+						"updateC",
+						"67b29ce11b2f8bda469f281e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarCategoria",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2636/v1/category/deleteC/67b2a823b814e99639b60d2c",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"category",
+						"deleteC",
+						"67b2a823b814e99639b60d2c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarTodosProductos",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2636/v1/product/getAllP",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"product",
+						"getAllP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarIdProductos",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2636/v1/product/getP/67b2b94d6ef8b326c02c5f90",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"product",
+						"getP",
+						"67b2b94d6ef8b326c02c5f90"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarProducto",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "description",
+							"value": "concentrado para perro de 6 meses",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:2636/v1/product/updateP/67b2b94d6ef8b326c02c5f90",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"product",
+						"updateP",
+						"67b2b94d6ef8b326c02c5f90"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarProducto",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2636/v1/product/deleteP/67b2b94d6ef8b326c02c5f90",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"v1",
+						"product",
+						"deleteP",
+						"67b2b94d6ef8b326c02c5f90"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
