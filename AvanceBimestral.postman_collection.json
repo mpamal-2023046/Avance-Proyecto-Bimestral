@@ -1,0 +1,1174 @@
+{
+	"info": {
+		"_postman_id": "f1ed8b8c-5465-4030-be22-13c65b58367e",
+		"name": "AvanceBimestral",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956966"
+	},
+	"item": [
+		{
+			"name": "ADMIN",
+			"item": [
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "AgregarProducto",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Croquetas",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "concentrado para perro",
+											"type": "text"
+										},
+										{
+											"key": "brand",
+											"value": "Dog Chow",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "260.00",
+											"type": "text"
+										},
+										{
+											"key": "stock",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "sold",
+											"value": "8",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "67c4df50e7b54b9a134481a5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:2636/v1/product/addP",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"product",
+										"addP"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllProducts",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/product/getAllP/",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"product",
+										"getAllP",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetProductById",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/product/getP/67c4df72e7b54b9a134481aa",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"product",
+										"getP",
+										"67c4df72e7b54b9a134481aa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetSoulOutProducts",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/product/getSOP",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"product",
+										"getSOP"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetTopSellingProducts",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/product/getTopSP",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"product",
+										"getTopSP"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetSellProduct",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "quantity",
+											"value": "27",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:2636/v1/product/getSell/67c4df72e7b54b9a134481aa",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"product",
+										"getSell",
+										"67c4df72e7b54b9a134481aa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateProduct",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Croquetas Max",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "concentrado para perro de 6 meses",
+											"type": "text"
+										},
+										{
+											"key": "brand",
+											"value": "Food for baby dogs",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "350.00",
+											"type": "text"
+										},
+										{
+											"key": "stock",
+											"value": "35",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "67c4df50e7b54b9a134481a5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:2636/v1/product/updateP/67c4df72e7b54b9a134481aa",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"product",
+										"updateP",
+										"67c4df72e7b54b9a134481aa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "EliminarProducto",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/product/deleteP/67c4df16e7b54b9a134481a0",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"product",
+										"deleteP",
+										"67c4df16e7b54b9a134481a0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "AgregarCategoria",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Mascotas",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Consentrado para animales",
+											"type": "text"
+										},
+										{
+											"key": "clasification",
+											"value": "CATEGORY",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:2636/v1/category/addC",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"category",
+										"addC"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ListarCategorias",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/category/getAllC",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"category",
+										"getAllC"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ActualizarCategoria",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Perros",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Consentrado solo para perros",
+											"type": "text"
+										},
+										{
+											"key": "clasification",
+											"value": "CATEGORY",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:2636/v1/category/updateC/67c4df50e7b54b9a134481a5",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"category",
+										"updateC",
+										"67c4df50e7b54b9a134481a5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "EliminarCategoria",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:2636/v1/category/deleteC/67c4ab66344d2ee2ed303ee4",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"category",
+										"deleteC",
+										"67c4ab66344d2ee2ed303ee4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Invoice",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "defaultuser",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "De123456?",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2636/login",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CLIENT",
+			"item": [
+				{
+					"name": "Register",
+					"item": [
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var data = JSON.parse(responseBody);\r",
+											"postman.setGlobalVariable(\"token\", data.token)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "userLoggin",
+											"value": "mpamal",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "428273Ma?",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:2636/login",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AgregarUsuario",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "marcos",
+											"type": "text"
+										},
+										{
+											"key": "surname",
+											"value": "pamal",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "mpamal",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mpamal@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "428273Ma?",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "42827334",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:2636/register",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ListarTodosUsuarios",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:2636/v1/user/getAllU",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"user",
+										"getAllU"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ListarIdUsuario",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/user/getU/67c4f9c98aae85891ad79999",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"user",
+										"getU",
+										"67c4f9c98aae85891ad79999"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ActualizarUsuario",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "marcos",
+											"type": "text"
+										},
+										{
+											"key": "surname",
+											"value": "joel",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "mjoel",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mjoel@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "43372824",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:2636/v1/user/updateU/67c4f9c98aae85891ad79999",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"user",
+										"updateU",
+										"67c4f9c98aae85891ad79999"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "EliminarUsuario",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/user/deleteU/67b289e64d6737c655014804",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"user",
+										"deleteU",
+										"67b289e64d6737c655014804"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ProductExploration",
+					"item": [
+						{
+							"name": "GetTopSellingProducts",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/user/getTopSP",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"user",
+										"getTopSP"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetProductByName",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/user/getP/?name=Croquetas Max",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"user",
+										"getP",
+										""
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Croquetas Max"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllCategories",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/user/getAllC",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"user",
+										"getAllC"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllProductsByCategory",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/user/getAllP/?category=67c4df50e7b54b9a134481a5",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"user",
+										"getAllP",
+										""
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "67c4df50e7b54b9a134481a5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ShoppingCart",
+					"item": [
+						{
+							"name": "AddCart",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "customer",
+											"value": "67c4f9c98aae85891ad79999",
+											"type": "text"
+										},
+										{
+											"key": "product",
+											"value": "67c50a2e61823e4cfcffbb3b",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:2636/v1/shoppingCart/addCart",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"shoppingCart",
+										"addCart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllMyCarts",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/shoppingCart/getCarts",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"shoppingCart",
+										"getCarts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateCarts",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "localhost:2636/v1/shoppingCart/updateCart/",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"shoppingCart",
+										"updateCart",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteProductCart",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/shoppingCart/deleteProductCart/",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"shoppingCart",
+										"deleteProductCart",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteCart",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2636/v1/shoppingCart/deleteCart/",
+									"host": [
+										"localhost"
+									],
+									"port": "2636",
+									"path": [
+										"v1",
+										"shoppingCart",
+										"deleteCart",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:2636/test",
+					"host": [
+						"localhost"
+					],
+					"port": "2636",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
