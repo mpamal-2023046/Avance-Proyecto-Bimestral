@@ -1,4 +1,5 @@
 import User from './user.model.js'
+import Invoice from '../invoice/invoice.model.js'
 
 
 
@@ -141,5 +142,23 @@ export const deleteUser = async(req, res) => {
     } catch (err) {
         console.error(err);
         return res.status(500).send({ message: 'General error', err });
+    }
+}
+
+
+
+//Historial de compras del usuario
+export const getPurchaseHistory = async (req, res) => {
+    try {
+        const { id } = req.params
+        // Buscar todas las facturas del usuario
+        const invoices = await Invoice.find({ customer: id }).populate('products')
+        if (invoices.length === 0) {
+            return res.status(404).send({ message: 'No purchase history found' })
+        }
+        return res.send({ success: true, invoices })
+    } catch (err) {
+        console.error("Error fetching purchase history:", err)
+        return res.status(500).send({ message: 'General error', err })
     }
 }

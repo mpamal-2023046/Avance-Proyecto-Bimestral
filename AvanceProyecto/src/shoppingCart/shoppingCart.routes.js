@@ -1,10 +1,9 @@
 import express from 'express'
-
 import { addCart,
          getCarts,
          updateCart,
          deleteCart,
-         deleteProductCart
+         buyCart
 } from './shoppingCart.controller.js'
 import { validateJwt, isClient } from '../../middlewares/validate.jwt.js'
 
@@ -14,6 +13,6 @@ api.post('/addCart', [validateJwt, isClient], addCart)
 api.get('/getCarts',[validateJwt, isClient], getCarts )
 api.put('/updateCart/:id', [validateJwt, isClient], updateCart)
 api.delete('/deleteCart/:id', [validateJwt, isClient], deleteCart)
-api.delete('/deleteProductCart/:id', [validateJwt, isClient], deleteProductCart)
+api.post('/buyCart', [validateJwt, isClient], buyCart) 
 
 export default api

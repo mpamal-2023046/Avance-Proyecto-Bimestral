@@ -23,18 +23,14 @@ const productSchema = Schema(
         },
         stock:{
             type: Number,
-            required: [true, 'Stock is required']
-        },
-        /*soldOut:{
-            type: Schema.Types.ObjectId,
-            //ref: ,
-            required: [true, 'SoldOut is required']
+            required: [true, 'Stock is required'],
+            min: 0
         },
         sold: {
-            type: Schema.Types.ObjectId,
-            //ref: ,
-            required: [true, 'Sold is required']
-        },*/
+            type: Number,
+            required: [true, 'Sold is required'],
+            default: 0
+        },
         category: {
             type: Schema.Types.ObjectId,
             ref: 'Category',
@@ -47,4 +43,4 @@ const productSchema = Schema(
     }
 )
 
-export default model('product', productSchema)
+export default model('Product', productSchema)

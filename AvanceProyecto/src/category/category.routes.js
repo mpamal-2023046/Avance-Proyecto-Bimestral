@@ -11,7 +11,7 @@ const api = Router()
 
 
 api.post('/addC', [validateJwt, isAdmin], addCategory)
-api.get('/getAllC', getAllCategories)
+api.get('/getAllC', [validateJwt], getAllCategories)
 api.put('/updateC/:id', [validateJwt, isAdmin], updateCategory)
 api.delete('/deleteC/:id', [validateJwt, isAdmin], deleteCategory)
 

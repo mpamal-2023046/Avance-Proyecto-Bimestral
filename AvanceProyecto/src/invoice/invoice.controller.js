@@ -3,43 +3,6 @@ import Product from '../products/products.model.js';
 
 
 
-//Crear Factura (validando stock)
-export const addInvoice = async (req, res) => {
-    try {
-        const { customer, NIT, products, quantity, typeOfPayment } = req.body
-        if (products.length !== quantity.length) {
-            return res.status(400).send({ message: 'Mismatch between products and quantities' })
-        }
-        let total = 0;
-        let productDetails = []
-        for (let i = 0; i < products.length; i++) {
-            const product = await Product.findById(products[i]);
-            if (!product) return res.status(404).send({ message: `Product not found: ${products[i]}` })
-            if (product.stock < quantity[i]) {
-                return res.status(400).send({ message: `Not enough stock for ${product.name}` })
-            }
-            total += product.price * quantity[i]
-            product.stock -= quantity[i]
-            product.sold += quantity[i]
-            await product.save()
-            productDetails.push(product)
-        }
-        const invoice = new Invoice(
-            { 
-                customer, NIT, 
-                products, quantity, 
-                price: total, total, 
-                typeOfPayment 
-            }
-        )
-        await invoice.save()
-        return res.send({ success: true, message: 'Invoice created', invoice })
-    } catch (err) {
-        return res.status(500).send({ message: 'General error', err })
-    }
-}
-
-
 
 //Obtener todas las facturas
 export const getAllInvoices = async (req, res) => {
@@ -56,8 +19,8 @@ export const getAllInvoices = async (req, res) => {
 //Obtener factuas por usuario
 export const getInvoicesByCustomer = async (req, res) => {
     try {
-        const { customerId } = req.params
-        const invoices = await Invoice.find({ customer: customerId }).populate('products')
+        const { id } = req.params
+        const invoices = await Invoice.find({ customer: id }).populate('products')
         if (invoices.length === 0) return res.status(404).send(
             {
                 message: 'No invoices found for this customer' 
@@ -89,7 +52,17 @@ export const getInvoiceById = async (req, res) => {
 export const updateInvoice = async (req, res) => {
     try {
         const { id } = req.params
-        const { products, quantity } = req.body
+        let products = req.body.products
+        let quantity = req.body.quantity
+        if (typeof products === 'string') {
+            products = products.split(',').map(p => p.trim())
+        }
+        if (typeof quantity === 'string') {
+            quantity = quantity.split(',').map(q => Number(q.trim()))
+        }
+        if (!Array.isArray(products) || !Array.isArray(quantity)) {
+            return res.status(400).send({ message: 'Products and quantities must be arrays' });
+        }
         if (products.length !== quantity.length) {
             return res.status(400).send({ message: 'Mismatch between products and quantities' })
         }
@@ -121,20 +94,6 @@ export const updateInvoice = async (req, res) => {
         invoice.price = total
         await invoice.save()
         return res.send({ success: true, message: 'Invoice updated', invoice })
-    } catch (err) {
-        return res.status(500).send({ message: 'General error', err })
-    }
-}
-
-
-
-//Eliminar Factura
-export const deleteInvoice = async (req, res) => {
-    try {
-        const { id } = req.params
-        const invoice = await Invoice.findByIdAndDelete(id)
-        if (!invoice) return res.status(404).send({ message: 'Invoice not found' })
-        return res.send({ success: true, message: 'Invoice deleted' })
     } catch (err) {
         return res.status(500).send({ message: 'General error', err })
     }
